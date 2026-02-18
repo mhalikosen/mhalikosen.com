@@ -17,18 +17,6 @@ const ogImage = new URL("/og.png", Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- FOUC prevention: apply theme before render -->
-    <script is:inline>
-      (function () {
-        var stored = localStorage.getItem("theme");
-        if (stored === "dark") {
-          document.documentElement.classList.add("dark");
-        } else if (stored === "light") {
-          document.documentElement.classList.add("light");
-        }
-      })();
-    </script>
-
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />

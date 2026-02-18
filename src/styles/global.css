@@ -41,23 +41,11 @@
   --accent-hover: #0f766e;
   --border: #e2e8f0;
 
-  color-scheme: light;
-}
-
-html.dark {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --accent: #2dd4bf;
-  --accent-hover: #5eead4;
-  --border: #1e293b;
-
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not(.light) {
+  :root {
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
     --text-primary: #f1f5f9;
@@ -65,8 +53,6 @@ html.dark {
     --accent: #2dd4bf;
     --accent-hover: #5eead4;
     --border: #1e293b;
-
-    color-scheme: dark;
   }
 }
 
