@@ -1,0 +1,17 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg-primary)]/80 backdrop-blur-md"
+>
+  <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+    <a
+      href="/"
+      class="text-sm font-medium tracking-wide text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+    >
+      mhalikosen
+    </a>
+    <ThemeToggle />
+  </div>
+</header>

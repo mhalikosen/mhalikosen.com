@@ -1,0 +1,80 @@
+---
+interface Project {
+  name: string;
+  description: string;
+  tech: string[];
+  url?: string;
+}
+
+const projects: Project[] = [
+  {
+    name: "Sigortaya",
+    description: "Insurance comparison platform",
+    tech: [".NET", "Next.js", "PostgreSQL"],
+    url: "https://sigortaya.com",
+  },
+  {
+    name: "Mannskap",
+    description: "Crew matching for the Norwegian fishing fleet",
+    tech: [".NET", "Next.js", "PostgreSQL"],
+  },
+  {
+    name: "Harezmind",
+    description: "Event discovery mobile app",
+    tech: [".NET", "React Native", "Remix"],
+  },
+  {
+    name: "TML",
+    description: "Vue SFC-style server-side template engine",
+    tech: ["TypeScript", "Node.js"],
+    url: "https://www.npmjs.com/package/tml-engine",
+  },
+];
+---
+
+<section class="mx-auto max-w-3xl px-6 pb-16 md:pb-20">
+  <h2
+    class="mb-8 text-sm font-semibold uppercase tracking-widest text-[var(--accent)]"
+  >
+    Projects
+  </h2>
+  <div class="space-y-6">
+    {
+      projects.map((project) => (
+        <div class="group rounded-lg border border-[var(--border)] p-5 transition-colors duration-200 hover:border-[var(--accent)]/40 hover:bg-[var(--bg-secondary)]">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-semibold text-[var(--text-primary)]">
+                {project.url ? (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-colors hover:text-[var(--accent)]"
+                  >
+                    {project.name}
+                    <span class="ml-1 inline-block text-xs opacity-0 transition-opacity group-hover:opacity-100">
+                      ↗
+                    </span>
+                  </a>
+                ) : (
+                  project.name
+                )}
+              </h3>
+              <p class="mt-1 text-sm text-[var(--text-secondary)]">
+                {project.description}
+              </p>
+            </div>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {project.tech.map((t) => (
+              <span class="rounded-full bg-[var(--bg-secondary)] px-2.5 py-0.5 text-xs font-medium text-[var(--text-secondary)] group-hover:bg-[var(--bg-primary)]">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
