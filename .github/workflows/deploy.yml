@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build:
     if: github.event_name == 'workflow_dispatch' || vars.KOSENWORKS_DEPLOY == 'on'
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v7
       - uses: docker/setup-buildx-action@v4
@@ -46,4 +46,4 @@ jobs:
           install -d -m 700 ~/.ssh
           printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
-          ssh -i ~/.ssh/deploy root@178.105.184.189 mhalikosen/website ${{ github.sha }}
+          ssh -i ~/.ssh/deploy root@2.31.196.3 mhalikosen/website ${{ github.sha }}
